@@ -10,6 +10,10 @@ class User {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
+	
+	Date dateCreated
+	Date lastUpdated
+	
 
 	static transients = ['springSecurityService']
 
@@ -38,5 +42,9 @@ class User {
 
 	protected void encodePassword() {
 		password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
+	}
+	
+	String toString = {
+		username
 	}
 }
